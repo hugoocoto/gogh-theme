@@ -58,4 +58,3 @@ jobs:
           commit_message: "Regenerate colorscheme files [skip ci]"
           file_pattern: "colors/*.lua lua/base16-colorscheme.lua palette/*.png"
           add_options: "-f"
-          skip_dirty_check: true
