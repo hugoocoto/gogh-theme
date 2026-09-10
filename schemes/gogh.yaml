@@ -14,25 +14,31 @@
 # - base04: gruvbox-material's real "grey2" (#a89984), sitting between
 #   base03's comment-gray and base05's default foreground — gives status
 #   bar / inactive-tab text its own shade instead of duplicating base05.
-# - base0F: gruvbox-material has no ninth accent hue to borrow, so this
-#   is base09's orange darkened ~25% (a related but distinct muted
-#   burnt-orange for delimiters/punctuation, not a literal repeat of
-#   base09).
+# - base0F: gruvbox-material has no ninth accent hue to borrow, and no
+#   background-wash variant is legible as foreground text, so this is a
+#   constructed muted navy/indigo (#4b5f9b) — matched to the other
+#   accents' hue/saturation/lightness pattern, noticeably darker than
+#   base0D's blue (#7daea3), used for delimiters/punctuation.
 #
-# base02 and base0A are borrowed from the old nvim-gogh plugin so the
-# nvim colorscheme reads closer to it:
-# - base02: real near-black UI chrome bg (#141617, gruvbox-material's
-#   "bg_dim"), used for StatusLine/CursorLine/Visual/etc in
-#   lua/base16-colorscheme.lua. kitty.mustache never reads base02, so
-#   this doesn't touch terminal output.
+# base00 and base02 are swapped from their literal alacritty/gruvbox-material
+# roles so base00-07 is a true dark->light ramp with no exceptions: base02's
+# near-black UI chrome bg (#141617, gruvbox-material's "bg_dim") was actually
+# darker than base00, so it now sits in base00, and alacritty's real
+# background (#1d2021) now sits in base02. Consequence: base00 feeds kitty's
+# background/titlebar colors and nvim's Normal bg (both borrowed from the old
+# nvim-gogh plugin, same as base0A below), so kitty's rendered background is
+# now #141617 rather than alacritty's actual #1d2021 background — intentional,
+# done to fix the ramp ordering. base02 (now #1d2021) still only feeds
+# StatusLine/CursorLine/Visual/etc in lua/base16-colorscheme.lua;
+# kitty.mustache never reads base02.
 # - base0A: real yellow (#d8a657) instead of the terminal's orange-toned
 #   ANSI yellow. This DOES feed kitty's color3/color11, so kitty's
 #   rendered "yellow" now differs from alacritty's.
 scheme: "Gogh"
 author: "Hugo Coto"
-base00: "1d2021"
+base00: "141617"
 base01: "282828"
-base02: "141617"
+base02: "1d2021"
 base03: "928374"
 base04: "a89984"
 base05: "d4be98"
@@ -45,4 +51,4 @@ base0B: "a9b665"
 base0C: "89b482"
 base0D: "7daea3"
 base0E: "d3869b"
-base0F: "ad683a"
+base0F: "4b5f9b"

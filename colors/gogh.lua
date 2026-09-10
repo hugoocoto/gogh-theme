@@ -5,9 +5,9 @@
 -- highlight clear (run by setup() below) unlets g:colors_name, so it must
 -- be set after setup() runs, not before.
 require("base16-colorscheme").setup({
-  base00 = "#1d2021",
+  base00 = "#141617",
   base01 = "#282828",
-  base02 = "#141617",
+  base02 = "#1d2021",
   base03 = "#928374",
   base04 = "#a89984",
   base05 = "#d4be98",
@@ -20,7 +20,7 @@ require("base16-colorscheme").setup({
   base0C = "#89b482",
   base0D = "#7daea3",
   base0E = "#d3869b",
-  base0F = "#ad683a",
+  base0F = "#4b5f9b",
 })
 
 vim.g.colors_name = "gogh"
