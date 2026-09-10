@@ -1,0 +1,35 @@
+# Most values are colors that already existed in your real alacritty.toml
+# (background/foreground/normal+bright colors) — nothing invented there.
+# base01/04 reuse base03/base05 since the original config had no distinct
+# colors for those ramp steps; base09/0F reuse base09's orange for the
+# same reason. base00-07 stay a dark->light shade ramp per the base16
+# styling guidelines; base0B (green) is used directly for kitty's
+# selection_background instead of bending base02 into an accent color.
+#
+# base02 and base0A are the two exceptions, both borrowed from the old
+# nvim-gogh plugin so the nvim colorscheme reads closer to it:
+# - base02: real near-black UI chrome bg (#141617), used for
+#   StatusLine/CursorLine/Visual/etc in lua/base16-colorscheme.lua.
+#   kitty.mustache never reads base02, so this doesn't touch terminal
+#   output.
+# - base0A: real yellow (#d8a657) instead of the terminal's orange-toned
+#   ANSI yellow. This DOES feed kitty's color3/color11, so kitty's
+#   rendered "yellow" now differs from alacritty's.
+scheme: "Gogh"
+author: "Hugo Coto"
+base00: "1d2021"
+base01: "928374"
+base02: "141617"
+base03: "928374"
+base04: "d4be98"
+base05: "d4be98"
+base06: "ddc7a1"
+base07: "ffffff"
+base08: "ea6962"
+base09: "e78a4e"
+base0A: "d8a657"
+base0B: "a9b665"
+base0C: "89b482"
+base0D: "7daea3"
+base0E: "d3869b"
+base0F: "e78a4e"

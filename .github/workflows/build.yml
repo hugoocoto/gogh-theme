@@ -1,0 +1,61 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "schemes/**"
+      - "templates/**"
+      - "build.sh"
+      - "setup.sh"
+      - ".gitmodules"
+      - ".github/workflows/build.yml"
+      - "base16-builder-php"
+      - "base16-spectrum-generator"
+  pull_request:
+    branches: [main]
+    paths:
+      - "schemes/**"
+      - "templates/**"
+      - "build.sh"
+      - "setup.sh"
+      - ".gitmodules"
+      - ".github/workflows/build.yml"
+      - "base16-builder-php"
+      - "base16-spectrum-generator"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build
+        run: ./build.sh
+
+      - name: Commit generated colorscheme files
+        if: github.event_name == 'push'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Regenerate colorscheme files [skip ci]"
+          file_pattern: "colors/*.lua lua/base16-colorscheme.lua palette/*.png"
+          add_options: "-f"
+          skip_dirty_check: true
