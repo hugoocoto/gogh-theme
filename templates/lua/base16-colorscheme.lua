@@ -1,14 +1,5 @@
--- This file is copied verbatim by build.sh into lua/base16-colorscheme.lua.
--- Edit it here, not the copy in lua/ — that one is build output.
---
 -- Applies a base16 (https://github.com/tinted-theming/base16) color palette
 -- as Neovim highlight groups.
---
--- Highlight groups adapted from the base16-nvim template
--- (https://github.com/wincent/base16-nvim) by Greg Hurrell
--- (https://github.com/wincent), itself based on base16-vim
--- (https://github.com/chriskempson/base16-vim) by Chris Kempson and its
--- fork tinted-vim (https://github.com/tinted-theming/tinted-vim).
 
 local M = {}
 

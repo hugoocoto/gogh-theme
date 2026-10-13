@@ -1,39 +1,3 @@
-# Most values are colors that already existed in your real alacritty.toml
-# (background/foreground/normal+bright colors) — nothing invented there.
-# base00-07 stay a dark->light shade ramp per the base16 styling
-# guidelines; base0B (green) is used directly for kitty's
-# selection_background instead of bending base02 into an accent color.
-#
-# alacritty's palette is itself Gruvbox Material (background=hard,
-# foreground=material — see ~/.local/share/nvim/.../gruvbox-material/
-# autoload/gruvbox_material.vim), so gaps that alacritty's 8 ANSI slots
-# don't cover are filled from that same source rather than invented:
-# - base01: gruvbox-material's real "bg1" (#282828), the hard variant's
-#   actual lighter-background step above bg0 — used for statusline/
-#   sidebar-style backgrounds, not a duplicate of base03's gray.
-# - base04: gruvbox-material's real "grey2" (#a89984), sitting between
-#   base03's comment-gray and base05's default foreground — gives status
-#   bar / inactive-tab text its own shade instead of duplicating base05.
-# - base0F: gruvbox-material has no ninth accent hue to borrow, and no
-#   background-wash variant is legible as foreground text, so this is a
-#   constructed muted navy/indigo (#4b5f9b) — matched to the other
-#   accents' hue/saturation/lightness pattern, noticeably darker than
-#   base0D's blue (#7daea3), used for delimiters/punctuation.
-#
-# base00 and base02 are swapped from their literal alacritty/gruvbox-material
-# roles so base00-07 is a true dark->light ramp with no exceptions: base02's
-# near-black UI chrome bg (#141617, gruvbox-material's "bg_dim") was actually
-# darker than base00, so it now sits in base00, and alacritty's real
-# background (#1d2021) now sits in base02. Consequence: base00 feeds kitty's
-# background/titlebar colors and nvim's Normal bg (both borrowed from the old
-# nvim-gogh plugin, same as base0A below), so kitty's rendered background is
-# now #141617 rather than alacritty's actual #1d2021 background — intentional,
-# done to fix the ramp ordering. base02 (now #1d2021) still only feeds
-# StatusLine/CursorLine/Visual/etc in lua/base16-colorscheme.lua;
-# kitty.mustache never reads base02.
-# - base0A: real yellow (#d8a657) instead of the terminal's orange-toned
-#   ANSI yellow. This DOES feed kitty's color3/color11, so kitty's
-#   rendered "yellow" now differs from alacritty's.
 scheme: "Gogh"
 author: "Hugo Coto"
 base00: "141617"
